@@ -1,0 +1,906 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Aria is a business focused HTML landing page template built with Bootstrap to help you create lead generation websites for companies and their services.">
+    <meta name="author" content="Inovatik">
+
+    <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
+	<meta property="og:site_name" content="" /> <!-- website name -->
+	<meta property="og:site" content="" /> <!-- website link -->
+	<meta property="og:title" content=""/> <!-- title shown in the actual shared post -->
+	<meta property="og:description" content="" /> <!-- description shown in the actual shared post -->
+	<meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
+	<meta property="og:url" content="" /> <!-- where do you want your post to link to -->
+	<meta property="og:type" content="article" />
+
+    <!-- Website Title -->
+    <title>Asmp</title>
+    
+  <!-- Styles -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/fontawesome-all.css' %}" rel="stylesheet">
+<link href="{% static 'css/magnific-popup.css' %}" rel="stylesheet">
+<link href="{% static 'css/styles.css' %}" rel="stylesheet">
+<link href="{% static 'css/swiper.css' %}" rel="stylesheet">
+	
+	<!-- Favicon  -->
+    <link rel="icon" href="images/favicon.png">
+
+    <!-- Faq Css -->
+
+    <style>
+        /*  Faq Section*/
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+	*{
+			box-sizing: border-box;
+			transition: 0.25s;
+		}
+		/* body{
+      font: 18px/1.5 'Abel',system-ui, sans-serif;
+			padding: 0 2rem;
+			background: #000E;
+			color: dimgray;
+    } */
+    h1{
+      text-align: center;
+      font-size: 3rem;
+      padding-bottom: 0.25em;
+      border-bottom: 1px solid silver;
+      border-image: linear-gradient(to right, transparent 20%, darkslategrey, transparent 80%)30;
+    }
+/*** Specific styles ***/
+    details{
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 0.25rem;
+			border: 1px solid silver;
+    }
+    summary{
+		  list-style-type: '✔  ';
+      font-size: 1.25rem;
+      font-weight: bold;
+      cursor: pointer; 
+      position: relative;
+			outline: none;
+			color: black;
+    }
+    summary::after{
+      content: "👇🏻";
+      /* Used Whatsapp emoji */
+      padding: 0.5rem;
+      position: absolute;
+      right: 0.25rem;
+      top: -0.5rem;
+      
+    }
+    /* details[open]{
+			background: whitesmoke;
+    } */
+	details[open] summary{
+		color: dimgrey;
+	}
+    details[open] summary::after{
+      content: "👍🏻";
+    }
+/*** End specific styles ***/
+    p{
+      color: dimgrey;
+      letter-spacing: 1.5;
+    }
+
+
+/* Donate layer */
+.donate{
+	position: fixed;
+	bottom: 0.25rem;
+	right: 0.25rem; 
+	border-radius: 0.5rem;
+	padding: 0 1rem;
+	font-weight: bold;
+	color: dimgray;
+}
+.donate a{
+	text-decoration: none;
+	color: orangered;
+	border-bottom: 2px solid transparent;
+	transition: 0.35s;
+}
+.donate a:hover{
+	border-bottom-color: orangered;
+}
+    </style>
+</head>
+<body data-spy="scroll" data-target=".fixed-top"
+style="background-color: #E4F1FB;
+background-size: cover;">
+    
+    <!-- Preloader -->
+	<div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+    <!-- end of preloader -->
+    
+
+    <!-- Navbar -->
+   
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SARC</title>
+    </head>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <body>
+        <div class="navbar">
+            <img href="static/img/asmp.jpg" class="navlogo">
+            <ul class="opt">
+                <a href="/#"><li class="optli">About</li></a>
+                <a href="/#events"><li class="optli">Events</li></a>
+                <a href="http://"><li class="optli">Team</li></a>
+                <a href="/profile/"><li class="optli">Profile</li></a>
+                {% if request.user.is_authenticated %}
+                <a href="/logout"><li class="optli logout">Logout</li></a>
+                {%else%}
+                <a href="/login/"><li class="optli login">Login</li></a>
+                {% endif %}
+            </ul>
+        </div>
+    
+        <div class="mnavbar">
+            <div class="mnav-top">
+                <img href="logo.png" class="navlogo">
+            <div class="hamburger" id="hamburger-6" onclick="hamToggle()">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+              </div>
+            </div>
+    
+            <div id="overlay">
+                <ul class="mopt">
+                  <a href="/"><li class="optli">Sneak Peek</li></a>
+                <a href="/#events"><li class="optli">Testimonials</li></a>
+                <a href="http://"><li class="optli">FAQs</li></a>
+                <a href="/profile/"><li class="optli">Events</li></a>
+                <a href="/logout"><li class="optli logout">Team</li></a>
+                <a href="/register/"><li class="optli login">Choose Mentors</li></a>
+                </ul>
+            </div>
+            
+           
+        </div>
+
+    </body>
+</html>
+    <!-- end of navbar -->
+
+
+    <!-- Header -->
+    <header id="header" class="header">
+        <div class="header-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="text-container">
+                            <h1 id="asmp" style=" font-size: 50pt; color:#F4B65B;font-family: Verdana, Geneva, Tahoma, sans-serif;">ASMP </h1>
+                            <br><br>
+                            <p id="paraoftop" class="p-heading p-large" style="font-family: 'SecondaSoft-Black' ; font-size: 25px; margin: auto;padding: 10px; color: rgb(61, 59, 59);">Alumni Student Mentorship Programme (ASMP) is an initiative by Student Alumni Relations Cell with an objective of creating a platform to foster relationships between alumni mentors and students that last forever. ASMP achieves this aim by bringing together alumni mentors and student mentees through various events to help form a rapport and strengthen the connection between them, thus enhancing the IITB Alumni network.</p>
+                            <!-- <a class="btn-solid-lg page-scroll" href="#intro">DISCOVER</a> -->
+                        </div>
+                    </div> <!-- end of col -->
+                </div> <!-- end of row -->
+            </div> <!-- end of container -->
+        </div> <!-- end of header-content -->
+    </header> <!-- end of header -->
+    <!-- end of header -->
+
+<!-- <br><br><br><br> -->
+    <!-- Video -->
+    <div id="video" style="position: relative;
+    margin-left: 10%;
+    width: 90%;
+    height: 80%;
+    margin: 3% auto;
+    justify-content: center;
+    text-align: center;">
+    <iframe height="60%" width="60%;"
+            src="https://embed.wave.video/6113e5d146e0fb0001bfe6e6" frameborder="0" allow="autoplay; fullscreen;"
+            scrolling="no"></iframe>
+            </div>
+        </div>
+        </div>
+        <!-- Video End -->
+
+    <!-- Sneak Peek-->
+    <div class="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="color: #000000;font-family: 'SecondaSoft-Black'; ">Sneak Peek</h1>
+                   <br><br><br><br>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Card Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    
+                                    <div class="card" id="cardstyles" >
+                                        <br><br>
+                                        <p>AL 109</p>
+                                        <div class="card-body" >
+                                            <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div>
+                                            <div class="testimonial-author">Jude Thorn - Founder</div>
+                                        </div>
+                                        <br><br><br><br>
+                                    </div>
+                                    <br><br>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+        
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    
+                                    <div class="card" id="cardstyles" >
+                                        <br><br>
+                                        <p>AL 109</p>
+                                        <div class="card-body" >
+                                            <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div>
+                                            <div class="testimonial-author">Jude Thorn - Founder</div>
+                                        </div>
+                                        <br><br><br><br>
+                                    </div>
+                                    <br><br>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+        
+                              <!-- Slide -->
+                              <div class="swiper-slide">
+                                    
+                                <div class="card" id="cardstyles" >
+                                    <br><br>
+                                    <p>AL 109</p>
+                                    <div class="card-body" >
+                                        <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div>
+                                        <div class="testimonial-author">Jude Thorn - Founder</div>
+                                    </div>
+                                    <br><br><br><br>
+                                </div>
+                                <br><br>
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+        
+                               <!-- Slide -->
+                               <div class="swiper-slide">
+                                    
+                                <div class="card" id="cardstyles" >
+                                    <br><br>
+                                    <p>AL 109</p>
+                                    <div class="card-body" >
+                                        <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div>
+                                        <div class="testimonial-author">Jude Thorn - Founder</div>
+                                    </div>
+                                    <br><br><br><br>
+                                </div>
+                                <br><br>
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+        
+                              <!-- Slide -->
+                              <div class="swiper-slide">
+                                    
+                                <div class="card" id="cardstyles" >
+                                    <br><br>
+                                    <p>AL 109</p>
+                                    <div class="card-body" >
+                                        <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div>
+                                        <div class="testimonial-author">Jude Thorn - Founder</div>
+                                    </div>
+                                    <br><br><br><br>
+                                </div>
+                                <br><br>
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+        
+                              <!-- Slide -->
+                              <div class="swiper-slide">
+                                    
+                                <div class="card" id="cardstyles" >
+                                    <br><br>
+                                    <p>AL 109</p>
+                                    <div class="card-body" >
+                                        <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div>
+                                        <div class="testimonial-author">Jude Thorn - Founder</div>
+                                    </div>
+                                    <br><br><br><br>
+                                </div>
+                                <br><br>
+                            </div> <!-- end of swiper-slide -->
+                            <!-- end of slide -->
+                            
+                            </div> <!-- end of swiper-wrapper -->
+        
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
+        
+                        </div> <!-- end of swiper-container -->
+                    </div> <!-- end of sliedr-container -->
+                    <!-- end of card slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider -->
+
+    <h2 id="testimoo"></h2>
+    <!-- Testimonials -->
+    <div class="slider">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="color: #000000;font-family: 'SecondaSoft-Black';"> Testimonials</h1>
+                    <br><br><br><br>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Card Slider -->
+                    <div class="slider-container">
+                        <div class="swiper-container card-slider">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-1.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-text">The guys from Aria helped with getting my business off the ground and turning into a profitable company.</div>
+                                            <div class="testimonial-author">Jude Thorn - Founder</div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+        
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-2.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-text">I purchased the Growth Accelerator service pack a few years ago and I renewed the contract each year. </div>
+                                            <div class="testimonial-author">Marsha Singer - Marketer</div>
+                                        </div>
+                                    </div>        
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+        
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-3.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-text">Aria's CEO personally attends client meetings and gives his feedback on business growth strategies.</div>
+                                            <div class="testimonial-author">Roy Smith - Developer</div>
+                                        </div>
+                                    </div>        
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+        
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-4.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-text">At the beginning I thought the prices are a little high for what they offer but they over deliver each and every time.</div>
+                                            <div class="testimonial-author">Ronald Spice - Owner</div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+        
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-5.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-text">I recommend Aria to every business owner or growth leader that wants to take his company to the next level.</div>
+                                            <div class="testimonial-author">Lindsay Rune - Manager</div>
+                                        </div>
+                                    </div>        
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+        
+                                <!-- Slide -->
+                                <div class="swiper-slide">
+                                    <div class="card">
+                                        <img class="card-image" src="images/testimonial-6.jpg" alt="alternative">
+                                        <div class="card-body">
+                                            <div class="testimonial-text">My goals for using Aria's services seemed high when I first set them but they've met them with no problems.</div>
+                                            <div class="testimonial-author">Ann Black - Consultant</div>
+                                        </div>
+                                    </div>        
+                                </div> <!-- end of swiper-slide -->
+                                <!-- end of slide -->
+                            
+                            </div> <!-- end of swiper-wrapper -->
+        
+                            <!-- Add Arrows -->
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <!-- end of add arrows -->
+        
+                        </div> <!-- end of swiper-container -->
+                    </div> <!-- end of sliedr-container -->
+                    <!-- end of card slider -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of slider -->
+    <!-- end of testimonials -->
+    <br><br>
+           <!--  FAQs Section -->
+           <h2 id="faaqq"></h2>
+           <br><br>
+<h1 id="heading" style="color: #000000;font-family: 'SecondaSoft-Black';">F.A.Q.</h1><br>
+<br><br><br><br><br><br>
+
+<details>
+  <summary style="text-align: left;">Question 1</summary>
+  <p>Just use a <code>details</code> and <code>summary</code> tags with a little CSS, no more JS. You can use any text or emoji as caret.</p> <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora in nihil, deleniti saepe optio corrupti dolorum perferendis hic iure, maiores quae vitae provident minus, ipsum, aut tempore facilis doloremque rem.</p>
+<p><strong>Do I was helpfull? Help me too ;) <a href="https://www.paypal.com/donate/?hosted_button_id=NZ9Z8YDHSMMEC" target="_blank" rel="noopener">Paypal</a></strong></p>	 
+</details>
+<details>
+  <summary style="text-align: left;">Question 2</summary>
+  <p>Ipsa veritatis inventore reprehenderit dolorem, officiis. Quaerat doloribus voluptatibus impedit repellat quae perspiciatis nesciunt, recusandae facilis unde fugit et eaque rem voluptatum perferendis libero veniam rerum aliquam eos minima voluptate.</p>
+</details>
+<details>
+  <summary style="text-align: left;">Question 3</summary>
+  <p>Quisquam, necessitatibus quo dolore sequi suscipit magni, voluptatum debitis, accusantium dolorum officia beatae rerum similique optio saepe vel dicta facere modi, voluptatem culpa expedita quaerat eum reprehenderit dolores. Assumenda, doloremque!</p>
+</details>
+<details>
+  <summary style="text-align: left;">Question 4</summary>
+  <p>Dolorum quaerat facilis magnam commodi molestiae atque similique hic enim pariatur nulla magni amet iusto soluta nemo alias odit recusandae repudiandae dignissimos, fugit asperiores quia eius necessitatibus iure. Possimus, illum.</p>
+</details>
+<details>
+  <summary style="text-align: left;">Question 5</summary>
+  <p>Consequuntur voluptate consequatur sed adipisci libero temporibus atque itaque voluptas eos, rerum vero qui. Adipisci illum, molestias commodi unde necessitatibus ea, quod explicabo, deleniti voluptatem aliquam reprehenderit, nobis maiores. Saepe?</p>
+</details>
+</div>
+<!-- End faq -->
+
+            
+
+
+    <!-- Projects -->
+	<div id="projects" class="filter">
+		<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1  style="color: #000000;font-family: 'SecondaSoft-Black';">Events</h1>
+                    <br><br><br><br>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Filter -->
+                    <div class="button-group filters-button-group">
+                        <a class="button" data-filter=".development"><span>Break The Ice</span></a>
+                        <a class="button" data-filter=".development"><span>Mentor Mentee Meetup</span></a>
+                        <a class="button" data-filter=".development"><span>Shadow Programme</span></a>
+                        <a class="button" data-filter=".development"><span>Group Mentoring</span></a>
+                        
+                    </div> <!-- end of button group -->
+                    <div class="grid">
+                        <div class="element-item development">
+                            <a class="popup-with-move-anim" href="#project-1"><div class="element-item-overlay"><span>Break The Ice</span></div><img src="images/project-1.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item development">
+                            <a class="popup-with-move-anim" href="#project-2"><div class="element-item-overlay"><span>Mentor Mentee Meetup</span></div><img src="images/project-2.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design development marketing">
+                            <a class="popup-with-move-anim" href="#project-3"><div class="element-item-overlay"><span>Shadow Programme</span></div><img src="images/project-3.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design development marketing">
+                            <a class="popup-with-move-anim" href="#project-4"><div class="element-item-overlay"><span>Group Mentoring</span></div><img src="images/project-4.jpg" alt="alternative"></a>
+                        </div>
+                        <!-- <div class="element-item design development marketing seo">
+                            <a class="popup-with-move-anim" href="#project-5"><div class="element-item-overlay"><span>Joy Moments</span></div><img src="images/project-5.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing seo">
+                            <a class="popup-with-move-anim" href="#project-6"><div class="element-item-overlay"><span>Spark Events</span></div><img src="images/project-6.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-7"><div class="element-item-overlay"><span>Casual Wear</span></div><img src="images/project-7.jpg" alt="alternative"></a>
+                        </div>
+                        <div class="element-item design marketing">
+                            <a class="popup-with-move-anim" href="#project-8"><div class="element-item-overlay"><span>Zazoo Apps</span></div><img src="images/project-8.jpg" alt="alternative"></a>
+                        </div> -->
+                    </div> <!-- end of grid -->
+                    <!-- end of filter -->
+                    
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+		</div> <!-- end of container -->
+    </div> <!-- end of filter -->
+    <!-- end of projects -->
+
+
+    <!-- Project Lightboxes -->
+    <!-- Lightbox -->
+    <div id="project-1" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-1.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Break The Ice</h3>
+                <hr class="line-heading">
+                
+                <p>Break The Ice kickstarts the mentoring process through a lunch-meeting for the mentor and mentee, which also fosters a personal interaction between the two.</p>
+                
+                
+                 <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-2" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-2.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Break The Ice</h3>
+                <hr class="line-heading">
+                
+                <p>Break The Ice kickstarts the mentoring process through a lunch-meeting for the mentor and mentee, which also fosters a personal interaction between the two.</p>
+                
+                
+                 <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-3" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-3.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Break The Ice</h3>
+                <hr class="line-heading">
+                
+                <p>Break The Ice kickstarts the mentoring process through a lunch-meeting for the mentor and mentee, which also fosters a personal interaction between the two.</p>
+                
+                
+                 <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+    <!-- Lightbox -->
+    <div id="project-4" class="lightbox-basic zoom-anim-dialog mfp-hide">
+        <div class="row">
+            <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
+            <div class="col-lg-8">
+                <img class="img-fluid" src="images/project-4.jpg" alt="alternative">
+            </div> <!-- end of col -->
+            <div class="col-lg-4">
+                <h3>Break The Ice</h3>
+                <hr class="line-heading">
+                
+                <p>Break The Ice kickstarts the mentoring process through a lunch-meeting for the mentor and mentee, which also fosters a personal interaction between the two.</p>
+                
+                
+                 <a class="btn-outline-reg mfp-close as-button" href="#projects">BACK</a> 
+            </div> <!-- end of col -->
+        </div> <!-- end of row -->
+    </div> <!-- end of lightbox-basic -->
+    <!-- end of lightbox -->
+
+   
+
+<h2 id="teaming"></h2>
+    <!-- Team -->
+    <div class="basic-2">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 style="color: #000000;font-family: 'SecondaSoft-Black';" >Our Team </h1>
+                    <br><br><br><br>
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="images/team-1.png" alt="alternative">
+                        </div> <!-- end of image-wrapper -->
+                        <p class="p-large">John Whitelong</p>
+                        <p class="job-title">General Manager</p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div> <!-- end of team-member -->
+                    <!-- end of team member -->
+
+                    <!-- Team Member -->
+                   
+
+                   
+                    <!-- end of team member -->
+
+                   
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-2 -->
+    <!-- end of team -->
+
+<!-- Team 2 -->
+
+    <!-- Team -->
+    <div class="basic-2">
+        <div class="container">
+            
+            <div class="row">
+                <div class="col-lg-12">
+
+                   
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="images/team-2.png" alt="alternative">
+                        </div> <!-- end of image wrapper -->
+                        <p class="p-large">Veronique Smith</p>
+                        <p class="job-title">Business Developer</p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div> <!-- end of team-member -->
+                    <!-- end of team member -->
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="images/team-3.png" alt="alternative">
+                        </div> <!-- end of image wrapper -->
+                        <p class="p-large">Chris Zimerman</p>
+                        <p class="job-title">Online Marketer</p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div> <!-- end of team-member -->
+                    <!-- end of team member -->
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="images/team-4.png" alt="alternative">
+                        </div> <!-- end of image wrapper -->
+                        <p class="p-large">Mary Villalonga</p>
+                        <p class="job-title">Community Manager</p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div> <!-- end of team-member -->
+                    <!-- end of team member -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-2 -->
+    <!-- end of team -->
+
+
+    
+    <!-- Team -->
+    <div class="basic-2">
+        <div class="container">
+            <!-- end of row -->
+            <div class="row">
+                <div class="col-lg-12">
+
+                  
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="images/team-2.png" alt="alternative">
+                        </div> <!-- end of image wrapper -->
+                        <p class="p-large">Veronique Smith</p>
+                        <p class="job-title">Business Developer</p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div> <!-- end of team-member -->
+                    <!-- end of team member -->
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="images/team-3.png" alt="alternative">
+                        </div> <!-- end of image wrapper -->
+                        <p class="p-large">Chris Zimerman</p>
+                        <p class="job-title">Online Marketer</p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div> <!-- end of team-member -->
+                    <!-- end of team member -->
+
+                    <!-- Team Member -->
+                    <div class="team-member">
+                        <div class="image-wrapper">
+                            <img class="img-fluid" src="images/team-4.png" alt="alternative">
+                        </div> <!-- end of image wrapper -->
+                        <p class="p-large">Mary Villalonga</p>
+                        <p class="job-title">Community Manager</p>
+                        <span class="social-icons">
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-facebook-f fa-stack-1x"></i>
+                                </a>
+                            </span>
+                            <span class="fa-stack">
+                                <a href="#your-link">
+                                    <span class="hexagon"></span>
+                                    <i class="fab fa-twitter fa-stack-1x"></i>
+                                </a>
+                            </span>
+                        </span>
+                    </div> <!-- end of team-member -->
+                    <!-- end of team member -->
+
+                </div> <!-- end of col -->
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
+    </div> <!-- end of basic-2 -->
+    <!-- end of team -->
+
+    
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Morphext/2.4.4/morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js"></script> <!-- Isotope for filter -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/validator/13.7.0/validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
+<script src="{% static 'javascript/scripts.js' %}"></script> <!-- Custom scripts -->
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.clouds.min.js"></script>
+<script>
+VANTA.CLOUDS({
+  el: ".header-content",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  backgroundColor: 0xb5ff00,
+  skyColor: 0x91d3ff,
+  cloudShadowColor: 0x245b8e,
+  sunColor: 0xff9100,
+  sunGlareColor: 0x6a2000,
+  sunlightColor: 0xff7300
+})
+
+function hamToggle()
+{
+    console.log("helloo")
+    var element = document.getElementById("hamburger-6");
+    element.classList.toggle("is-active");
+    var element = document.getElementById("overlay");
+    element.classList.toggle("toggle");
+}
+
+</script>
+
+
+</body>
+</html>

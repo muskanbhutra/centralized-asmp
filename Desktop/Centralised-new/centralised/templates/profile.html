@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+</head>
+<body>
+
+
+    <div class="bg" id="bird-bg">
+
+        <div class="card">
+            <div class="top">
+            </div>
+            <img class="pimg" src="{% static 'img/dp.jpg' %}" alt="">
+            <p class="name">{{user.name}}</p>
+            <div class="content">
+                <p class="dept">Roll Number : {{user.rollno}}</p>
+                <p class="dept">Degree : {{user.degree}}</p>
+                <p class="dept">Department : {{user.department}}</p>
+                <p class="dept">Email : {{user.p_email}}</p>
+                <p class="dept">Contact : {{user.contact}}</p>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="navbar">
+        <img href="static/img/asmp.jpg" class="navlogo">
+        <ul class="opt">
+            <a href="/#"><li class="optli">About</li></a>
+            <a href="/#events"><li class="optli">Events</li></a>
+            <a href="http://"><li class="optli">Team</li></a>
+            <a href="/profile/"><li class="optli">Profile</li></a>
+            {% if request.user.is_authenticated %}
+            <a href="/logout"><li class="optli logout">Logout</li></a>
+            {%else%}
+            <a href="/login/"><li class="optli login">Login</li></a>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="mnavbar">
+        <div class="mnav-top">
+            <img href="logo.png" class="navlogo">
+        <div class="hamburger" id="hamburger-6" onclick="hamToggle()">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div id="overlay">
+            <ul class="mopt">
+              <a href="/"><li class="optli">About</li></a>
+            <a href="/#events"><li class="optli">Events</li></a>
+            <a href="http://"><li class="optli">Team</li></a>
+            <a href="/profile/"><li class="optli">Profile</li></a>
+            {% if request.user.is_authenticated %}
+            <a href="/logout"><li class="optli logout">Logout</li></a>
+            {%else%}
+            <a href="/login/"><li class="optli login">Login</li></a>
+            {% endif %}
+            </ul>
+        </div>
+        
+       
+    </div>
+
+    
+    
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+        <script>
+        VANTA.BIRDS({
+          el: "#bird-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          backgroundColor: 0xdce5f5,
+          speedLimit: 3.00,
+          separation: 100.00,
+          alignment: 1.00,
+          quantity: 3.00
+        })
+        </script>
+
+        <script>
+            function hamToggle()
+{
+    console.log("helloo")
+    var element = document.getElementById("hamburger-6");
+    element.classList.toggle("is-active");
+    var element = document.getElementById("overlay");
+    element.classList.toggle("toggle");
+}
+        </script>
+</html>

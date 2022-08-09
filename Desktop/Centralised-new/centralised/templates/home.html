@@ -1,0 +1,288 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <div class="bg"></div>
+
+    <div class="navbar">
+        <img src="{% static 'img/ASMP2@3x.png' %}" class="navlogo">
+        <ul class="opt">
+            <a href="#"><li class="optli">About</li></a>
+            <a href="#events"><li class="optli">Events</li></a>
+            <a href="http://"><li class="optli">Team</li></a>
+            <a href="/profile/"><li class="optli">Profile</li></a>
+            {% if request.user.is_authenticated %}
+            <a href="/logout"><li class="optli logout">Logout</li></a>
+            {%else%}
+            <a href="/login/"><li class="optli login">Login</li></a>
+            {% endif %}
+        </ul>
+    </div>
+
+    <div class="mnavbar">
+        <div class="mnav-top">
+            <img src="{% static 'img/ASMP2@3x.png' %}" class="navlogo">
+        <div class="hamburger" id="hamburger-6" onclick="hamToggle()">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+        </div>
+
+        <div id="overlay">
+            <ul class="mopt">
+              <a href="#"><li class="optli">About</li></a>
+            <a href="#events"><li class="optli">Events</li></a>
+            <a href="http://"><li class="optli">Team</li></a>
+            <a href="/profile/"><li class="optli">Profile</li></a>
+            {% if request.user.is_authenticated %}
+            <a href="/logout"><li class="optli logout">Logout</li></a>
+            {%else%}
+            <a href="/login/"><li class="optli login">Login</li></a>
+            {% endif %}
+            </ul>
+        </div>
+        
+       
+    </div>
+
+
+    <div class="about" id="about">
+        <div class="abt-head typing-text">STUDENT ALUMNI RELATIONS CELL</div>
+        <div class="abt-desc">“Nobody is bothered about an institution more than its alumni.” -Narayan Murthy<br><br>
+        SARC was established to convey and harness the connection of the alumni with the institute. It is a student run body and
+        a crucial part of the Dean Alumni and Corporate Relations (Dean ACR) Office, whose exclusive focus is on endorsing
+        stronger ties between the students and alumni. SARC has launched a number of initiatives that have served as a shared
+        forum for networking and engagement between students and alumni.
+
+          <br>
+          {% if not request.user.is_authenticated %}
+          <a href="/register/"><div class="reg">Register</div></a>
+          {%endif%}
+        </div>
+    </div>
+
+    <div class="questions">
+        <div class="accordion">
+        <div class="accordion-item">
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">What do we do?
+</span><span class="icon" aria-hidden="true">+</span></button>
+            <div class="accordion-content">
+              <p><b>Events:</b> SARC executes alumni-driven initiatives for the benefit of students and the institute. It assists the Alumni
+              Association (AA), the Development and Relations Foundation, and the Dean ACR’s office in organising various office
+              driven initiatives.<br><br>
+              <b>Dean ACR’s Newsletter:</b> The Knowledge Tree is Dean ACR’s monthly newsletter. Composed by SARC, it is a briefing of all
+              the happenings at IIT Bombay. The newsletter is read by over 90,000+ alumni, students and faculty.<br><br>
+              <b>Mentorship Programmes:</b> Students in the institute aspire to be like their alumni who have studied here in the past. One
+              of the most important initiatives of SARC involves programs wherein alumni mentor students regarding a variety of facets
+              of IIT Bombay. The two major programs that SARC organises to help students gain access to invaluable mentorship are ASMP
+              and PMP.<br><br>
+              <b>HATS:</b> Hostel Alumni Team Stewardship is an alumni-driven project that channels alumni enthusiasm for their hostels.
+              Hostel 7 established "In Service of the Lady" in 2006, and Hostel 4 HATS followed in 2009. Over the years, HATS has
+              developed a similar campaign for all hostels.<br><br>
+              <b>Alumni Reunion:</b> A lot of alumni come back to the Institute to relive their ‘insti life’ and enjoy it. With the air
+              filled with nostalgia, laughter and reminiscence, the reunions are one of the most awaited events among alumni. SARC
+              organises these silver, golden and decadal reunions of the alumni batches in collaboration with the IITBAA.
+</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Why create a SARC ID?
+</span><span class="icon" aria-hidden="true">+</span></button>
+            <div class="accordion-content">
+              <p>The centralised website is a one-stop solution to register for all events and initiatives SARC organises. Once your SARC
+              ID is created, you won’t need to fill in your details repeatedly. Logging into the centralised website and signing into
+              the event will lead to your registration.
+</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">How do I register on the SARC Centralised Website?
+</span><span class="icon" aria-hidden="true">+</span></button>
+            <div class="accordion-content">
+              <p>Registration can be done on - _____________. Register by filling in your personal details.
+</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">What should I do after completing my registration?
+
+              </span><span class="icon" aria-hidden="true">+</span></button>
+            <div class="accordion-content">
+              <p>Once your registration is complete:
+                <ol>
+              <li>You will be eligible to register for the events the SARC organises.</li>
+              <li>You will stay informed about the opportunities that SARC offers.</li>
+              <li>Become a part of the integrated and united ecosystem of alumni and students.</li>
+              </ol>
+
+              </p>
+            </div>
+          </div>
+        </div>
+    </div>
+
+
+<div class="events" id="events">
+    <div class="eventhead">Recent Events</div>
+    {% comment %} <section class="hero-section">
+        <div class="card-grid">
+          <a class="card" href="#">
+            <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)"></div>
+            <div class="card__content">
+              <centre><h3 class="card__heading">Placement Mentorship Program</h3></centre>
+              <div class="card__category">The Placement Mentoring Program seeks to provide mentorship to final-year students in a variety of core and non-core
+              sectors such as finance, analytics, consulting, IT/Software, and so on, in order to help them with their placement
+              process. The programme does this through contributions from recently graduated batches who have gone through the similar
+              placement procedure and are thus familiar with the problems that may be encountered. </div>
+            </div>
+          </a>
+          <a class="card" href="https://phonathon.sarc-iitb.org/">
+            <div class="card__background" style="background-image: url(static/img/phonathon.jpg); background-size: cover;"></div>
+            <div class="card__content">
+              <h3 class="card__heading">Phonathon</h3>
+              <div class="card__category">A telephonic marathon to establish a timeless connection with the alums, a call to connect with the past. This 10-day
+              competition came to light when SARC suggested a way to communicate with an alumnus who is not available in person. The
+              call could be with an ISRO space scientist or a former engineer, now-turned comedian. If you get lucky, it might be even
+              with the Twitter CEO . This alumni engagement will make communication skills your new forte too!
+ </div>
+            </div>
+          </a>
+          <a class="card" href="https://ntp.sarc-iitb.org/">
+            <div class="card__background" style="background-image: url(static/img/ntp.png); background-size: cover;"></div>
+            <div class="card__content">
+              <h3 class="card__heading">Nail The Prep</h3>
+              <div class="card__category">A strategised event wherein the alumni will pose as recruiters to provide real-time intellectual feedback, which will
+              help our third-year students secure their desired internships. The alumni will leave no stone unturned to prepare
+              anxious students for this strenuous interview process.
+ </div>
+            </div>
+          </li>
+          <a class="card" href="/asmp/">
+            <div class="card__background" style="background-image: url(static/img/asmp.jpg); background-size: cover;"></div>
+            <div class="card__content">
+              <h3 class="card__heading">Alumni Student Mentorship Program</h3>
+              <div class="card__category">If you dream of forging a year-long relationship with an alumnus, this is your chance! An amalgamation of two opposite
+              ends, a professional mentor-mentee relationship and a friend for posterity. This program helps you break the temporary
+              ice at the start of a professional tenure. We believe that your acquaintance with someone you look up to is essential to
+              hone your skills.
+</div>
+            </div>
+          </a>
+        <div>
+      </section> {% endcomment %}
+
+  <div class="cardwrap">
+<a href="#">
+    <div class="card-2" style="width: 500px; height: 500px;">
+      <img src="{% static 'img/PMP poster.png' %}" alt="" class="card-img">
+      <div class="card-text">
+      <h3 class="card-title">Placement Mentoring Program</h3>
+      <p class=" card-body">The Placement Mentoring Program seeks to provide mentorship to final-year students in a variety of core and non-core
+              sectors such as finance, analytics, consulting, IT/Software, and so on, in order to help them with their placement
+              process from recently graduated batches who have gone through the similar
+              placement procedure.
+  </p>
+      </div>
+    </div>
+  </a>
+<a href="https://phonathon.sarc-iitb.org/">
+    <div class="card-2" style="width: 500px; height: 500px;">
+      <img src="{% static 'img/phonathon poster.png' %}" alt="" class="card-img">
+      <div class="card-text">
+      <h3 class="card-title">Phonathon</h3>
+      <p class=" card-body">
+        A telephonic marathon to establish a timeless connection with the alums, a call to connect with the past. This 10-day
+              competition came to light when SARC suggested a way to communicate with an alumnus who is not available in person. The
+              call could be with an ISRO space scientist or a former engineer, now-turned comedian. If you get lucky, it might be even
+              with the Twitter CEO!
+        
+  </p>
+      </div>
+    </div>
+  </a>
+          <a href="https://ntp.sarc-iitb.org/">
+
+    <div class="card-2" style="width: 500px; height: 500px;">
+      <img src="{% static 'img/NTP poster.png' %}" alt="" class="card-img">
+      <div class="card-text">
+      <h3 class="card-title">Nail the Prep</h3>
+      <p class=" card-body">
+        A strategised event wherein the alumni will pose as recruiters to provide real-time intellectual feedback, which will
+              help our third-year students secure their desired internships. The alumni will leave no stone unturned to prepare
+              anxious students for this strenuous interview process.
+        
+  </p>
+      </div>
+    </div>
+  </a>
+<a href="/asmp/">
+    <div class="card-2" style="width: 500px; height: 500px;">
+      <img src="{% static 'img/asmp poster.png' %}" alt="" class="card-img">
+      <div class="card-text">
+      <h3 class="card-title">Alumni Student Mentorship Program</h3>
+      <p class=" card-body">If you dream of forging a year-long relationship with an alumnus, this is your chance! An amalgamation of two opposite
+              ends, a professional mentor-mentee relationship and a friend for posterity. This program helps you break the temporary
+              ice at the start of a professional tenure.
+  </p>
+      </div>
+    </div>
+
+  </a>
+</div>
+
+<div class="contact">
+    <div class="contacthead">Contact Us</div>
+    <div class="email"><b>Email :</b> sarc@gmail.com</div>
+    <div class="email"><b>Contact No. :</b> 8299099169</div>
+    <ul class="ficonls">
+        <a href="https://www.facebook.com/SARC.IITB/"><li class="ficon"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></li></a>
+        <a href="https://www.instagram.com/sarc_iitb/"><li class="ficon"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></li></a>
+        <a href="https://twitter.com/sarc_iitb?lang=en"><li class="ficon"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></li></a>
+        <a href="https://in.linkedin.com/in/sarciitb"><li class="ficon"><i class="fa fa-2x fa-linkedin" aria-hidden="true"></i></li></a>
+        <a href="https://www.youtube.com/c/SARCIITBombay"><li class="ficon"><i class="fa fa-2x fa-youtube-play" aria-hidden="true"></i></li></a>
+    </ul>
+    <div class="copy">Made with &hearts; by SARC</div>
+</div>
+    
+
+
+
+
+
+
+
+
+
+<script src="{% static 'javascript/home.js' %}"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+<script>
+VANTA.BIRDS({
+  el: ".bg",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  backgroundColor: 0xdce5f5,
+  speedLimit: 3.00,
+  separation: 100.00,
+  alignment: 1.00,
+  quantity: 3.00
+})
+</script>
+</body>
+</html>
