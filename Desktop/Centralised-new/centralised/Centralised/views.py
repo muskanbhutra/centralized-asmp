@@ -82,7 +82,7 @@ def register(request):
             context = {'message': 'User already exists'}
             return render(request, 'register.html', context)
 
-        send_mail("Thank you for Bonding with SARC", "Your OTP for Registering in SARC is 345789", "web.sarc.iitb@gmail.com", [email, ], fail_silently=False)
+        # send_mail("Thank you for Bonding with SARC", "Your OTP for Registering in SARC is 345789", "web.sarc.iitb@gmail.com", [email, ], fail_silently=False)
 
         user = User(email=email, username=email)
         profile = Profile(user=user, name=name, password=password, rollno=rollno, department=department, degree=degree,contact=contact, p_email=p_email)

@@ -29,7 +29,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.59.41.17' , 'localhost', 'sarc-iitb.org']
+ALLOWED_HOSTS = ['139.59.41.17' , 'localhost', 'sarc-iitb.org', '127.0.0.1']
 
 
 # Application definition
@@ -92,17 +92,15 @@ WSGI_APPLICATION = 'SARC.wsgi.application'
 
 DATABASES = {
         'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'centralised',
-            'HOST': 'localhost',
-            'USER': 'root',
-            'PASSWORD' : 'mysql_s@rk!!tb',
-            'OPTIONS': {
-                "init_command": "SET foreign_key_checks = 0;",
-                "charset": "utf8mb4",
-            },
-        }
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env('NAME'),
+        'USER': env('USER'),
+        'PASSWORD': env('PASSWORD'),
+        'PORT': 3306,
+        'HOST': env('HOST')
     }
+}
+
 
 
 # Password validation
