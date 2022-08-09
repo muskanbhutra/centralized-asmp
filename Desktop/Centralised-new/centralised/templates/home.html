@@ -42,7 +42,7 @@
             <ul class="mopt">
               <a href="#"><li class="optli">About</li></a>
             <a href="#events"><li class="optli">Events</li></a>
-            <a href="http://"><li class="optli">Team</li></a>
+            <a href="/team"><li class="optli">Team</li></a>
             <a href="/profile/"><li class="optli">Profile</li></a>
             {% if request.user.is_authenticated %}
             <a href="/logout"><li class="optli logout">Logout</li></a>
@@ -54,9 +54,9 @@
         
        
     </div>
-
-
+  <div class="wrap">
     <div class="about" id="about">
+      <div class="abttext">
         <div class="abt-head typing-text">STUDENT ALUMNI RELATIONS CELL</div>
         <div class="abt-desc">“Nobody is bothered about an institution more than its alumni.” -Narayan Murthy<br><br>
         SARC was established to convey and harness the connection of the alumni with the institute. It is a student run body and
@@ -69,8 +69,11 @@
           <a href="/register/"><div class="reg">Register</div></a>
           {%endif%}
         </div>
+      </div>
+      <img src="{% static 'img/venn.png' %}" class="venn">
     </div>
-
+    </div>
+    <div class="eventhead" style="padding-left: 60px;">Frequently Asked Questions</div>
     <div class="questions">
         <div class="accordion">
         <div class="accordion-item">
@@ -126,6 +129,20 @@
               </ol>
 
               </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title"> I am having trouble registering. What should I do?
+</span><span class="icon" aria-hidden="true">+</span></button>
+            <div class="accordion-content">
+              <p>1. Click on the menu tab at the top right corner.<br>
+                2. A list of options will appear; click on register.<br>
+                3. In the signup option, enter all your details (use your roll number to log in)<br>
+                4. After entering all the details, click on register.<br>
+                5. You will receive the password on your webmail. It may take 2-3 minutes to get the password, be patient, and do not register multiple times.<br>
+                6. When you enter the roll number and password to log in<br>
+                7. When you log in to the website again, you just need to log in and enter your roll number and the password to log in.<br>
+</p>
             </div>
           </div>
         </div>
@@ -243,11 +260,9 @@
 <div class="contact">
     <div class="contacthead">Contact Us</div>
     <div class="email"><b>Email :</b> sarc@gmail.com</div>
-    <div class="email"><b>Contact No. :</b> 8299099169</div>
     <ul class="ficonls">
         <a href="https://www.facebook.com/SARC.IITB/"><li class="ficon"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></li></a>
         <a href="https://www.instagram.com/sarc_iitb/"><li class="ficon"><i class="fa fa-2x fa-instagram" aria-hidden="true"></i></li></a>
-        <a href="https://twitter.com/sarc_iitb?lang=en"><li class="ficon"><i class="fa fa-2x fa-twitter" aria-hidden="true"></i></li></a>
         <a href="https://in.linkedin.com/in/sarciitb"><li class="ficon"><i class="fa fa-2x fa-linkedin" aria-hidden="true"></i></li></a>
         <a href="https://www.youtube.com/c/SARCIITBombay"><li class="ficon"><i class="fa fa-2x fa-youtube-play" aria-hidden="true"></i></li></a>
     </ul>

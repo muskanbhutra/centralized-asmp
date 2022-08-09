@@ -37,7 +37,7 @@ const text = document.querySelector('.typing-text');
 // make a words array
 const words = [
   "ASMP",
-  "Alumni Student Mentorship Programe",
+  "Alumni Student Mentorship Program",
 ];
 
 // start typing effect
