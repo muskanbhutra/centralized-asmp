@@ -160,7 +160,7 @@ def update(request):
                 profile.save()
                 mentor.score = mentor.score + returnScore(int(preference))
                 mentor.save()
-                send_mail("Suucessful Registration (ASMP | SARC)", "Your have been successfully registered for ASMP.<br><br> Your preferences are "+profile.pref1+" > "+profile.pref2+" > " + profile.pref3+ " > " + profile.pref4+ " > " + profile.pref5 + " <br><br>Regards<br>SARC IIT Bombay", "web.sarc.iitb@gmail.com", [profile.rollno+"@iitb.ac.in", ], fail_silently=False)
+                # send_mail("Suucessful Registration (ASMP | SARC)", "Your have been successfully registered for ASMP.<br><br> Your preferences are "+profile.pref1+" > "+profile.pref2+" > " + profile.pref3+ " > " + profile.pref4+ " > " + profile.pref5 + " <br><br>Regards<br>SARC IIT Bombay", "web.sarc.iitb@gmail.com", [profile.rollno+"@iitb.ac.in", ], fail_silently=False)
             else:
                 continue
         return redirect(request, '/asmp/')

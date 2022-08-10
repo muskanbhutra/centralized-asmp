@@ -1,7 +1,6 @@
  
 function hamToggle()
 {
-    console.log("helloo")
     var element = document.getElementById("hamburger-6");
     element.classList.toggle("is-active");
     var element = document.getElementById("overlay");
