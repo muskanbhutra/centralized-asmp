@@ -14,6 +14,9 @@
 <link href="{% static 'css/style.css' %}" rel="stylesheet">
 <link href="{% static 'css/swiper.css' %}" rel="stylesheet">
 <style>
+  html body{
+    overflow-x: hidden !important;
+  }
   @media only screen and (max-width: 800px) {
     .sneakLaptop {
       display: none;
@@ -33,6 +36,24 @@
       display: none;
     }
   }
+  a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+.bn{
+     color: white;
+    list-style-type: none;
+    min-height: 60px;
+    min-width: 100px;
+    padding: 10px;
+    border: 3px solid #B026FF;
+    border-radius: 10px;
+    text-align: center;
+    background-color: black;
+}
 </style>
 </head>
 <body>
@@ -40,18 +61,19 @@
     <div class="bg"></div>
 
     <div class="mynavbar">
-        <img src="{% static 'img/ASMP1@3x.png' %}" class="navlogo">
+        <img src="{% static 'img/ASMP3_1@3x.png' %}" class="navlogo">
         <ul class="opt">
-            <li>About</li>
-            <li>Events</li>
-            <li>Team</li>
-            <li>Profile</li>
+            <a href="#events"><li>Events</li></a>
+            <a href="#snp"><li>Sneak-Peek</li></a>
+            <a href="#test"><li>Testimonials</li></a>
+            <a href="#faq"><li>FAQs</li></a>
+            <a href="#team"><li>Team</li></a>
         </ul>
     </div>
 
     <div class="mnavbar">
         <div class="mnav-top">
-            <img src="{% static 'img/ASMP1@3x.png' %}" class="navlogo">
+            <img src="{% static 'img/ASMP3_1@3x.png' %}" class="navlogo">
         <div class="hamburger" id="hamburger-6" onclick="hamToggle()">
             <span class="line"></span>
             <span class="line"></span>
@@ -61,11 +83,11 @@
 
         <div id="overlay">
             <ul class="mopt">
-                <li>About</li>
-                <li>Choose Mentor</li>
-                <li>Events</li>
-                <li>Team</li>
-                <li>Profile</li>
+              <a href="#events"><li>Events</li></a>
+              <a href="#snp"><li>Sneak-Peek</li></a>
+              <a href="#test"><li>Testimonials</li></a>
+              <a href="#faq"><li>FAQs</li></a>
+              <a href="#team"><li>Team</li></a>
             </ul>
         </div>
         
@@ -74,9 +96,10 @@
 
 
     <div class="about">
-        <div class="abt-head typing-text">STUDENT ALUMNI RELATIONS CELL</div>
+        <div class="abt-head typing-text"></div>
         <div class="abt-desc">The Alumni Student Mentorship Program (ASMP) initiative by Student Alumni Relations Cell aims to create a platform for student-alumni interaction and nurture an everlasting relationship. This is achieved through various events where the alumni mentors guide the student mentees academically and professionally and help them in their other life problems, thereby creating a strong bond in the process and enhancing the IITB Alumni network.
-        </div>
+        </div><br>
+        <button class="bn"><a href="/asmp/pref">Choose Mentors</a></button>
     </div>
 
     {% comment %} <div id="video">
@@ -88,7 +111,7 @@
 
 
 <div class="cardparent">
-    <div class="asmpevents">Events</div>
+    <div class="asmpevents" id="events" style="text-align:center">Events</div>
     <div class="cardwrap">
 
     <div class="card-2" style="width: 500px; height: 320px;">
@@ -138,8 +161,8 @@
 
 
 {% comment %} sneak peek for laptop {% endcomment %}
-<div class="sneak-peek">
-  <div class="queshead">Sneak-Peek</div>
+<div class="sneak-peek" class="bg">
+  <div class="queshead" id="snp" style="text-align:center">Sneak-Peek</div>
 <div class="sneakLaptop">
   <div class="slideshow-container ">
 
@@ -321,7 +344,7 @@
   <div id="sneakSect"></div>
   <div id="testimonial-heading">
     <div id="testimonial-heading-text">
-      <h1 style="text-align: center;">Sneak Peek</h1>
+      <h1 style="text-align: center;" id="snp">Sneak Peek</h1>
     </div>
 
   </div>
@@ -453,7 +476,7 @@
 
       <div id="content">
         <div class="questions">
-      <div class="queshead">Testimonials</div>
+      <div class="queshead" id="test" style="text-align:center">Testimonials</div>
           <!-- Works using two columns, #column-left & #column-right for content -->
       
         <div id="column-left">
@@ -576,24 +599,26 @@
 
       </div>
       </div>
-<br> <br>
+<br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br><br> <br>
     <div class="questions">
-        <div class="queshead">Frequently Asked Questions</div>
+        <div class="queshead" style="text-align:center">Frequently Asked Questions</div>
         <div class="accordion">
-        <div class="accordion-item">
-            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Why is the moon sometimes out during the day?</span><span class="icon" aria-hidden="true">+</span></button>
+        <div class="accordion-item" id="faq">
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">How do I choose a mentor?</span><span class="icon" aria-hidden="true">+</span></button>
             <div class="accordion-content">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
             </div>
           </div>
           <div class="accordion-item">
-            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Why is the moon sometimes out during the day?</span><span class="icon" aria-hidden="true">+</span></button>
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">How many days will it take to get the mentor and further information regarding the process?
+            </span><span class="icon" aria-hidden="true">+</span></button>
             <div class="accordion-content">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
             </div>
           </div>
           <div class="accordion-item">
-            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">Why is the moon sometimes out during the day?</span><span class="icon" aria-hidden="true">+</span></button>
+            <button class="acc" id="accordion-button-1" aria-expanded="false"><span class="accordion-title">What is the time for which I will be allocated a mentor?
+            </span><span class="icon" aria-hidden="true">+</span></button>
             <div class="accordion-content">
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum sagittis vitae et leo duis ut. Ut tortor pretium viverra suspendisse potenti.</p>
             </div>
@@ -642,7 +667,7 @@
 </div> -->
 
 <div class="contact">
-    <div class="contacthead">Contact Us</div>
+    <div class="contacthead" id="team" style="text-align:center">Contact Us</div>
     <div class="contactcards">
       <div class="profile-card" data-aos="fade-left" data-aos-duration="1000">
         <div class="profile-card-header">
@@ -737,7 +762,6 @@
     </div>
   </div>
 </div>
-
 
     <ul class="ficonls">
         <a href="https://www.facebook.com/SARC.IITB/"><li class="ficon"><i class="fa fa-2x fa-facebook" aria-hidden="true"></i></li></a>

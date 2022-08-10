@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Ubuntu:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@700&display=swap');
 
@@ -5,7 +6,9 @@
   --hfont: 50px;
   --cfont: 22px
 }
-
+html body {
+  overflow-x: hidden;
+}
 a,
 a:hover,
 a:focus,
@@ -26,7 +29,7 @@ a:active {
 }
 
 .bg {
-  height: 100vh;
+  height: 120vh;
   width: 100vw;
   z-index: -100;
 }
@@ -47,8 +50,14 @@ a:active {
 
 .navlogo {
   height: 70px;
-  width: 180px;
+  width: 150px;
   padding-left: 70px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.venn{
+  height: 450px;
+  width: 450px;
 }
 
 .opt {
@@ -150,7 +159,15 @@ a:active {
   top: 50%;
   transform: translateY(-50%);
   padding-left: 70px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
+
+.abttext{
+  width: 70%;
+}
+
 
 .abt-head {
   font-size: var(--hfont);
@@ -159,9 +176,6 @@ a:active {
   color: #2C559B;
 }
 
-.abt-desc {
-  width: 55%;
-}
 
 .reg {
   display: inline-block;
@@ -448,6 +462,7 @@ a:active {
 
   .about {
     padding: 0 20px;
+    flex-wrap: wrap-reverse;
   }
 
   .abt-desc {
@@ -509,8 +524,17 @@ a:active {
     padding-bottom: 25px;
   }
 
+  .abttext{
+    width: 100%;
+  }
 
-  .accordion .accordion-item {
+  .venn{
+    width: 350px;
+    height: 350px;
+    margin-top: 100px;
+  }
+
+.accordion .accordion-item {
     border-bottom: 1px solid #e5e5e5;
     width: 100%;
   }
@@ -603,4 +627,11 @@ a:active {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+.wrap {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 15vh 0 20vh 0;
 }
