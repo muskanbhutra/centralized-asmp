@@ -29,7 +29,7 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['139.59.41.17' , 'localhost', 'sarc-iitb.org', '127.0.0.1']
+ALLOWED_HOSTS = ['*','139.59.41.17' , 'localhost', 'sarc-iitb.org', '127.0.0.1']
 
 
 # Application definition
@@ -54,6 +54,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://*']
 
 ROOT_URLCONF = 'SARC.urls'
 

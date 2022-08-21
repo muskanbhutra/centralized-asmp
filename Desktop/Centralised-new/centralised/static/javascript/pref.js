@@ -1,4 +1,22 @@
+function addwish(e, id)
+{
 
+	console.log(e.target.parentElement.parentElement.parentElement.parentElement.parentElement)
+	e.target.parentElement.parentElement.parentElement.parentElement.parentElement.style.display="none"
+	url='/asmp/fav/'+id+'/'
+	console.log(url)
+	$.ajax({
+		url: url,
+		type: "GET",
+		dataType: "json",
+		success: (data) => {
+		  console.log(data);
+		},
+		error: (error) => {
+		  console.log(error);
+		}
+	  });
+}
 
 function f()
 {

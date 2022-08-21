@@ -8,5 +8,6 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('asmp/', include('ASMP.urls')),
     path('logout', views.logout_view, name="logout"),
-    path('team', views.team, name="team")
+    path('team', views.team, name="team"),
+    path('editprofile/', views.editprofile, name="editprofile")
 ]

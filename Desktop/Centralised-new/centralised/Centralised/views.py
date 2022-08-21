@@ -103,3 +103,23 @@ def logout_view(request):
 def finish(request):
     return render(request, 'finish.html')
 
+def editprofile(request):
+    if request.method == 'GET' and request.user.is_authenticated:
+        context= {}
+        user = Profile.objects.filter(user=request.user).first()
+        context['user'] = user    
+        return render(request, "editprofile.html", context)
+    elif request.method == 'POST' and request.user.is_authenticated:
+        department = request.POST.get('department')
+        degree = request.POST.get('degree')
+        contact = request.POST.get('contact')
+        p_email = request.POST.get('p_email')
+        user = Profile.objects.filter(user=request.user).first()
+        user.department = department
+        user.degree = degree
+        user.contact = contact
+        user.p_email = p_email
+        user.save()
+        return redirect("/profile/")
+    else:
+        return redirect("/login/")
