@@ -6,7 +6,7 @@ https://www.youtube.com/watch?v=WuBcTJnIuzo
 
 # Create Virtual Environment and activate it
 virtualenv venv
-venv/scripts/activate.bat
+venv\scripts\activate.bat
 
 # Install all Packages from requirements.txt
 pip install -r requirements.txt

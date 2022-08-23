@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ['*','139.59.41.17' , 'localhost', 'sarc-iitb.org', '127.0.0.1']
 INSTALLED_APPS = [
     'ASMP',
     'Centralised',
+    'Coretalks',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -92,14 +93,23 @@ WSGI_APPLICATION = 'SARC.wsgi.application'
 #     }
 # }
 
+#Database connection to MySql Workbench
+# DATABASES = {
+#         'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': env('NAME'),
+#         'USER': env('USER'),
+#         'PASSWORD': env('PASSWORD'),
+#         'PORT': 3306,
+#         'HOST': env('HOST')
+#     }
+# }
+
+#Database connection to sqlite3 file
 DATABASES = {
         'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('NAME'),
-        'USER': env('USER'),
-        'PASSWORD': env('PASSWORD'),
-        'PORT': 3306,
-        'HOST': env('HOST')
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

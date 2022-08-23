@@ -10,4 +10,4 @@ class Profile(models.Model):
     degree = models.CharField(max_length=50, null=True)
     p_email = models.CharField(max_length=100, null=True)
     contact = models.CharField(max_length=15, null=True)
-    
+      
