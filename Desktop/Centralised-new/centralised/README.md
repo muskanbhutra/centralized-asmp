@@ -1,3 +1,5 @@
+Repo ka Folder structure Bekar hai sahi karo ise
+
 # SARC_Centralised
 The Official Website of SARC (Student Alumni Relations Cell) of IIT Bombay where we try to foster a friendly Relationship between Students and Alumns
 
