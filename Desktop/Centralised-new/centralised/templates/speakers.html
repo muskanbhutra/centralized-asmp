@@ -1,0 +1,44 @@
+{% if speakers %}
+    <div class="speakerList">
+        {% for speaker in speakers %}
+            <div class="speakerName">{{speaker.name}}</div>
+            <div class="mentorcard">
+            <div class="mentorcardinner">
+                <div class="mentorcardfront">
+                <div class="mentorid">{{speaker.name}}</div>
+                <div class="mentorinfo">
+                    {{speaker.depart}}
+                </div>
+                <div class="mentorinfo">
+                    {{speaker.name}}
+                </div>
+                <div class="mentorinfo">{{speaker.name}}</div>
+                <div class="mentorinfo">
+                    {{speaker.name}}
+                </div>
+                <center>
+                    <input type="checkbox" hx-trigger="click" hx-get="{% url 'addSpeakers' speaker.speaker_id %}" />
+                </center>
+                </div>
+                <div class="mentorcardback">
+                <div class="mentorinfo mentordesc">{{speaker.name}}</div>
+                <div class="mentorbtnwrap">
+                    <div
+                    class="mentorbtn1 mentorbtn"
+                    onclick="rotatecardback(event)"
+                    >
+                    {{speaker.name}}
+                    </div>
+                    <div class="mentorbtn2 mentorbtn">
+                    <a href="/asmp/fav/`+data.name+`">{{speaker.name}}</a>
+                    </div>
+                </div>
+                
+                </div>
+            </div>
+            </div> 
+        {% endfor %}
+    </div>
+{% else %}
+    <div>We dont have any Speakers Yet</div>
+{% endif %}

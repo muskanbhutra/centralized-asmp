@@ -1,31 +1,35 @@
-from asyncio.windows_events import NULL
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from .models import Student, Speaker
+from .models import Speaker, Student
 
+@login_required(login_url='/login')
 def index(request):
 
-    depart = NULL
-    speaker = NULL
-
-    if request.method == "POST":
-        depart = request.POST.get('depart')
-        speaker = request.POST.get('Attend')
-
-    print(speaker)
-
     context = {
-        'Speakers': Speaker.objects.filter(depart = depart),
-        'Core_Departments': list(Speaker.objects.values_list('depart', flat=True).distinct())
+        'speakers': list(Speaker.objects.all().values()),
+        'departments': list(Speaker.objects.values_list('depart', flat=True).distinct())
     }
 
     return render(request, "coretalks.html", context)
 
-@login_required(login_url='/login/')
-def pref(request):
+def getSpeakers(request, dept):
 
     context = {
-        'Speaker': Speaker.objects.filter(depart = "CSE")
+        'speakers': list(Speaker.objects.filter( depart = dept ).values()),
     }
 
-    return render(request, "pref.html", context)
+    return render(request, "speakers.html", context)
+
+def addSpeakers(request, speakerId):
+
+    speaker = Speaker.objects.filter( speaker_id = speakerId ).first()
+    student = Student.objects.filter(user=request.user).first()
+    if not student:
+        student = Student.objects.create(user=request.user)
+
+    if student.sessions.filter( speaker_id = speaker.speaker_id).exists():
+        student.sessions.remove(speaker)
+    else:
+        student.sessions.add(speaker)
+
+    return render(request, "speakers.html")
