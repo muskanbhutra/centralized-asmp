@@ -1,0 +1,52 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>SARC</title>
+    </head>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <body>
+        <div class="navbar">
+            <img href="{% static 'img/ASMP2@3x.png' %}" class="navlogo">
+            <ul class="opt">
+                <a href="/#"><li class="optli">About</li></a>
+                <a href="/#events"><li class="optli">Events</li></a>
+                <a href="http://"><li class="optli">Team</li></a>
+                <a href="/profile/"><li class="optli">Profile</li></a>
+                {% if request.user.is_authenticated %}
+                <a href="/logout"><li class="optli logout">Logout</li></a>
+                {%else%}
+                <a href="/login/"><li class="optli login">Login</li></a>
+                {% endif %}
+            </ul>
+        </div>
+    
+        <div class="mnavbar">
+            <div class="mnav-top">
+                <img src="{% static 'img/ASMP2@3x.png' %}" class="navlogo">
+            <div class="hamburger" id="hamburger-6" onclick="hamToggle()">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+              </div>
+            </div>
+    
+            <div id="overlay">
+                <ul class="mopt">
+                  <a href="/"><li class="optli">About</li></a>
+                <a href="/#events"><li class="optli">Events</li></a>
+                <a href="http://"><li class="optli">Team</li></a>
+                <a href="/profile/"><li class="optli">Profile</li></a>
+                {% if request.user.is_authenticated %}
+                <a href="/logout"><li class="optli logout">Logout</li></a>
+                {%else%}
+                <a href="/login/"><li class="optli login">Login</li></a>
+                {% endif %}
+                </ul>
+            </div>
+            
+           
+        </div>
+
+    </body>
+</html>

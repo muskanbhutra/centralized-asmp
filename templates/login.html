@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+</head>
+<body id="bird-bg">
+        <div class="form">
+          <form class="login-form" method="post" action="{% url 'login' %}">
+            {% if message %}
+            <div style="color: red; font-size: 20px; font-weight: bold;">{{message}}</div><br>
+            {% endif %} 
+            {% csrf_token %}
+            <h1 style="text-align: center; color:#2C559B; font-size: 50px;">LOGIN</h1><br>
+            <input type="email" name="email" placeholder="LDAP mail" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button class="reg">Login</button>
+            <p class="message">Not registered? <a href="{% url 'register' %}" style="color: #75A876;">Register</a></p>
+          </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+        <script>
+        VANTA.BIRDS({
+          el: "#bird-bg",
+          mouseControls: true,
+          touchControls: true,
+          gyroControls: false,
+          minHeight: 200.00,
+          minWidth: 200.00,
+          scale: 1.00,
+          scaleMobile: 1.00,
+          backgroundColor: 0xdce5f5,
+          speedLimit: 3.00,
+          separation: 100.00,
+          alignment: 1.00,
+          quantity: 3.00
+        })
+        </script>
+</body>
+</html>
