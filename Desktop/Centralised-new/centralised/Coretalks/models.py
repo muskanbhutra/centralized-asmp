@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -5,15 +6,15 @@ from django.contrib.auth.models import User
 
 class Speaker(models.Model):
     speaker_id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=100, default='Elon Musk')
-    disc = models.TextField(default='Hey, I am the Founder of SpaceX and I want to take humanity to mars')
-    depart = models.CharField(max_length=50, default="CSE")
-    degree = models.CharField(max_length=20, default="BTech")
-    city = models.CharField(max_length=100, default="Washington DC")
-    country = models.CharField(max_length=100, default="USA")
+    depart = models.TextField()
+    speakerType = models.TextField()
+    speakerDate = models.TextField()
+    speakerMode = models.TextField()
+    speakerTime = models.TextField()
+    speakerBio = models.TextField()
 
     def __str__(self):
-        return self.name
+        return self.speaker_id
 
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

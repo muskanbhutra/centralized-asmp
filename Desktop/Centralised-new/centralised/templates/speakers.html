@@ -6,7 +6,7 @@
             <div class="mentorcardinner">
                 <div class="mentorcardfront">
                     {% if speaker.speaker_id in mySpeakers%}
-                        <div class="mentorid">{{speaker.name}}</div>
+                        <div class="mentorid">{{speaker.depart}}</div>
                     {% else %}
                         <div class="mentoridFalse">{{speaker.name}}</div>
                     {% endif %}

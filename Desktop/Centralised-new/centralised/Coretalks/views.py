@@ -1,7 +1,29 @@
 from asyncio.windows_events import NULL
-from django.shortcuts import render
+from distutils.log import error
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Speaker, Student
+import numpy as np
+import pandas as pd
+
+def updateSpeaker(request):
+
+    sheet_url = 'https://docs.google.com/spreadsheets/d/1PXuq4EINfb3IfvKyYbjToc-yWFTrKhPeBzfrBTz1o6M/edit#gid=0'
+    data = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
+    data = pd.read_csv(data)
+
+    for i in range(len(data)):
+            Speaker.objects.create(
+                speaker_id = i,
+                depart = data.iloc[i]["Department"],
+                speakerType = data.iloc[i]["Type"],
+                speakerDate = data.iloc[i]["Date"],
+                speakerMode = data.iloc[i]["Mode"],
+                speakerTime = data.iloc[i]["Time"],
+                speakerBio = data.iloc[i]["Bio"]
+            )
+
+    return redirect(index)
 
 @login_required(login_url='/login')
 def index(request):
