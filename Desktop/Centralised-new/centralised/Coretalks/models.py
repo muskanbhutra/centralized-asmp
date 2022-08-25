@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Speaker(models.Model):
     speaker_id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=50, default='Elon Musk')
-    disc = models.TextField('Hey, I am the Founder of SpaceX and I want to take humanity to mars')
+    name = models.CharField(max_length=100, default='Elon Musk')
+    disc = models.TextField(default='Hey, I am the Founder of SpaceX and I want to take humanity to mars')
     depart = models.CharField(max_length=50, default="CSE")
     degree = models.CharField(max_length=20, default="BTech")
     city = models.CharField(max_length=100, default="Washington DC")

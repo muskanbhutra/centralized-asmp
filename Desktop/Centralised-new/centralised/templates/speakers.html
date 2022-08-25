@@ -1,11 +1,15 @@
 {% if speakers %}
     <div class="speakerList" style="display: flex;">
         {% for speaker in speakers %}
-            <div class="speakerName" style="color:rgb(90, 160, 210);">{{speaker.name}}</div>
-            <div class="mentorcard">
+
+            <div class="mentorcard" hx-trigger="click" hx-get="{% url 'addSpeakers' speaker.speaker_id %}" hx-target=".speakers">
             <div class="mentorcardinner">
                 <div class="mentorcardfront">
-                <div class="mentorid">{{speaker.name}}</div>
+                    {% if speaker.speaker_id in mySpeakers%}
+                        <div class="mentorid">{{speaker.name}}</div>
+                    {% else %}
+                        <div class="mentoridFalse">{{speaker.name}}</div>
+                    {% endif %}
                 <div class="mentorinfo">
                     {{speaker.depart}}
                 </div>
@@ -19,7 +23,6 @@
                 <center>
                    
                       </label>
-                    <input class="checkbox"  type="checkbox" hx-trigger="click" hx-get="{% url 'addSpeakers' speaker.speaker_id %}" />
                    
                 </label>
                 </center>
@@ -34,7 +37,7 @@
                     {{speaker.name}}
                     </div>
                     <div class="mentorbtn2 mentorbtn">
-                    <a href="/asmp/fav/`+data.name+`">{{speaker.name}}</a>
+                    <a>{{speaker.name}}</a>
                     </div>
                 </div>
                 
