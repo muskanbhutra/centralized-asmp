@@ -1,7 +1,7 @@
 {% if speakers %}
-    <div class="speakerList">
+    <div class="speakerList" style="display: flex;">
         {% for speaker in speakers %}
-            <div class="speakerName">{{speaker.name}}</div>
+            <div class="speakerName" style="color:rgb(90, 160, 210);">{{speaker.name}}</div>
             <div class="mentorcard">
             <div class="mentorcardinner">
                 <div class="mentorcardfront">
@@ -17,7 +17,11 @@
                     {{speaker.name}}
                 </div>
                 <center>
-                    <input type="checkbox" hx-trigger="click" hx-get="{% url 'addSpeakers' speaker.speaker_id %}" />
+                   
+                      </label>
+                    <input class="checkbox"  type="checkbox" hx-trigger="click" hx-get="{% url 'addSpeakers' speaker.speaker_id %}" />
+                   
+                </label>
                 </center>
                 </div>
                 <div class="mentorcardback">
